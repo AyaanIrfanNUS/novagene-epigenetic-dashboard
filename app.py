@@ -18,7 +18,9 @@ database = "bigdata-db"
 username = "sql-admin123"
 password = "Amlingroupw@tch67-2"
 
-connection_string = f"mssql+pymssql://{st.secrets["db_username"]}:{st.secrets["db_password"]}@{st.secrets["db_server"]}/{st.secrets["db_name"]}"
+import urllib.parse
+encoded_password = urllib.parse.quote_plus(st.secrets["db_password"])
+connection_string = f"mssql+pymssql://{st.secrets['db_username']}:{encoded_password}@{st.secrets['db_server']}/{st.secrets['db_name']}"
 engine = create_engine(connection_string)
 
 @st.cache_data(ttl=300)
