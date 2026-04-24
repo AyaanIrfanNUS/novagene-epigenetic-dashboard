@@ -1,9 +1,9 @@
 
 import streamlit as st
 import pandas as pd
-import sqlalchemy
+import pymssql
 from sqlalchemy import create_engine, text
-import urllib
+
 
 # --- Page Config ---
 st.set_page_config(
@@ -18,7 +18,7 @@ database = "bigdata-db"
 username = "sql-admin123"
 password = "Amlingroupw@tch67-2"
 
-connection_string = f"mssql+pyodbc://{st.secrets["db_username"]}:{st.secrets["db_password"]}@{st.secrets["db_server"]}/{st.secrets["db_name"]}?driver=ODBC+Driver+18+for+SQL+Server&TrustServerCertificate=yes"
+connection_string = f"mssql+pymssql://{st.secrets["db_username"]}:{st.secrets["db_password"]}@{st.secrets["db_server"]}/{st.secrets["db_name"]}"
 engine = create_engine(connection_string)
 
 @st.cache_data(ttl=300)
