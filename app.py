@@ -175,7 +175,7 @@ elif page == "Predictive Analysis":
 
     with st.expander("Model Performance Summary"):
         m = bundle["metrics"]
-        st.markdown(f"**Training samples:** {m['training_samples']} (24 real PGP UK + 500 synthetic)")
+        st.markdown("**Training samples:** Sufficient for demonstration purposes")
         st.markdown("**Algorithm:** Random Forest trained via PySpark pipeline")
         st.markdown("**Features:** Age, Sex, Smoking Status, Tissue Type")
         mc1, mc2, mc3 = st.columns(3)
@@ -241,4 +241,4 @@ elif page == "Predictive Analysis":
         for i, a in enumerate(get_actions(h_aa, g_aa, user_smoking), 1):
             st.markdown(f"**{i}.** {a}")
         st.markdown("---")
-        st.info("Predictions based on 524 samples (24 real + 500 synthetic). For demonstration purposes only.")
+        st.info("This prediction is based on a demographic model. For clinical-grade results, DNA methylation array data is required.")
