@@ -153,9 +153,9 @@ elif page == "Cohort Overview":
     moderate = len(merged[(merged.AgeAccelGrim > 0) & (merged.AgeAccelGrim <= 3.6)])
     low      = len(merged[merged.AgeAccelGrim <= 0])
     r1, r2, r3 = st.columns(3)
-    r1.metric("High Risk", f"{high} samples")
-    r2.metric("Moderate Risk", f"{moderate} samples")
-    r3.metric("Low Risk", f"{low} samples")
+    r1.metric("High Risk", f"{high/len(merged)*100:.0f}%")
+    r2.metric("Moderate Risk", f"{moderate/len(merged)*100:.0f}%")
+    r3.metric("Low Risk", f"{low/len(merged)*100:.0f}%")
 
     st.markdown("---")
     st.markdown("### Full Data Table")
