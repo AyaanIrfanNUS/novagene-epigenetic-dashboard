@@ -255,7 +255,7 @@ elif page == "IDAT Analysis":
     with col2:
         grn_file = st.file_uploader("Green Channel IDAT File (_Grn.idat)", type=["idat"])
 
-    st.markdown("### Sample Metadata")
+    st.markdown("### Your Information")
     m1, m2, m3, m4 = st.columns(4)
     with m1:
         input_age = st.number_input("Age", min_value=18, max_value=100, value=45)
